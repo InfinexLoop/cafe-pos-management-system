@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-espresso: #38261F;
+    --color-terracotta: #C87553;
+    --color-sage: #87977A;
+    --color-cream: #FAF7F1;
+  }
+
+  body {
+    background-color: #FAF7F1;
+    color: #261914;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+/* Custom Veg / Non-Veg Badges */
+.veg-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid #2e7d32;
+  border-radius: 3px;
+  background-color: #fff;
+}
+.veg-indicator .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #2e7d32;
+}
+
+.nonveg-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid #c62828;
+  border-radius: 3px;
+  background-color: #fff;
+}
+.nonveg-indicator .triangle {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 7px solid #c62828;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(56, 38, 31, 0.04);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 38, 31, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 38, 31, 0.35);
+}
+
+/* 80mm Thermal Receipt Styling */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .receipt-printable, .receipt-printable * {
+    visibility: visible;
+  }
+  .receipt-printable {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80mm !important;
+    max-width: 80mm !important;
+    padding: 2mm !important;
+    margin: 0 !important;
+    font-family: 'Courier New', monospace !important;
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+    color: #000 !important;
+    background: #fff !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Tactile Keypad Buttons */
+.keypad-btn {
+  @apply h-14 rounded-xl bg-white border border-espresso-100 text-espresso-900 text-xl font-semibold shadow-sm transition-all duration-150 active:scale-95 active:bg-espresso-100 flex items-center justify-center select-none;
+}
+.keypad-btn:hover {
+  @apply border-terracotta-400 bg-cream-100;
+}
